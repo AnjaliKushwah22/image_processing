@@ -1,0 +1,24 @@
+S3 Image Processing Using Lambda Function:
+
+* Image Upload:
+   I upload an image to the input bucket (input-images-5f84d02ebaa575b7).
+
+* S3 Event Notification:
+   S3 sends an event (e.g., s3:ObjectCreated:*) to AWS Lambda.
+   This event is triggered automatically because the Lambda function is set as an event listener for object creation in the input bucket.
+
+* Lambda Execution:
+   The function downloads the image from the input bucket (Lambda function is created automatically via Terraform).
+
+* Image Processing:
+   The Lambda function processes the image (e.g., resizing, compressing, etc.).
+
+* Upload to Processed Bucket:
+  The processed image is uploaded to the output bucket (processed-images-5f84d02ebaa575b7).
+
+* No Manual Trigger Needed:
+   Automation: Once the infrastructure is deployed with Terraform, the process is fully automated and event driven.
+
+* No Manual Execution:
+   There is no need to manually trigger the Lambda function, it automatically processes the image whenever a new file is uploaded to the input bucket.
+
